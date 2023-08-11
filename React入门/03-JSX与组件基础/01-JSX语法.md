@@ -42,3 +42,61 @@ function App () {
   )
 }
 ```
+
+# 事件
+`onXxx` 的形式 
+
+onXxx = {function}
+花括号里面是一个函数，函数名是onXxx，函数的值是一个函数
+
+```jsx
+function clickHandler(event: React.MouseEvent<HTMLParagraphElement>) {
+    event.preventDefault()
+    console.log('clicked')
+}
+
+return <p onClick={clickHandler}>hello world</p>
+```
+```jsx
+const clickHandler =  () => (event: React.MouseEvent<HTMLParagraphElement>) {
+    event.preventDefault()
+    console.log('clicked')
+}
+
+return <p onClick={clickHandler()}>hello world</p>
+```
+
+
+
+## JS 表达式
+
+`{xxx}` 格式表示一个 JS 变量或表达式，可用于
+
+- 普通文本内容，或判断、循环
+- 属性值
+- 用于注释
+
+```jsx
+function App () {
+  const name = 'jack'
+  const show = true
+  const arr = [1, 2, 3]
+  const obj = {a: 1, b: 2}
+
+  return (
+    <div>
+      <p>{name}</p>
+      <p>{show ? 'true' : 'false'}</p>
+      <p>{arr}</p>
+      <p>{obj}</p>
+      <p>{null}</p>
+      <p>{undefined}</p>
+      <p>{NaN}</p>
+      <p>{1 + 1}</p>
+      <p>{[1, 2, 3].map(item => <span>{item}</span>)}</p>
+      <p>{/* 注释 */}</p>
+    </div>
+  )
+}
+```
+```
